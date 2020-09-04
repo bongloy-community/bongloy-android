@@ -1,12 +1,19 @@
-plugins {
-    id 'com.android.library'
-    id 'checkstyle'
+apply plugin: 'com.novoda.bintray-release'
+apply plugin: 'com.android.library'
 
-    id 'maven'
-    id 'signing'
-    id 'maven-publish'
+publish {
 
-    // make sure this line comes *after* you apply the Android plugin
+    def groupProjectID = 'com.bongloy'
+    def artifactProjectID = 'bongloy-android'
+    def publishVersionID = '1.0.0'
+
+    userOrg = 'khomsovon'
+    repoName = 'bongloy'
+    groupId = groupProjectID
+    artifactId = artifactProjectID
+    publishVersion = publishVersionID
+    desc = 'The Bongloy Android SDK makes it quick and easy to build an excellent payment experience in your Android app.'
+    website = 'https://bongloy.com'
 }
 
 android {
@@ -47,5 +54,3 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.stripe:stripe-android:8.1.0'
 }
-
-apply from: 'deploy.gradle'
