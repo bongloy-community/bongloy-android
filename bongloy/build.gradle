@@ -1,5 +1,6 @@
 apply plugin: 'com.novoda.bintray-release'
 apply plugin: 'com.android.library'
+apply plugin: 'maven-publish'
 
 publish {
 
@@ -13,13 +14,14 @@ publish {
     artifactId = artifactProjectID
     publishVersion = publishVersionID
     desc = 'The Bongloy Android SDK makes it quick and easy to build an excellent payment experience in your Android app.'
-    website = 'https://bongloy.com'
+    website = 'https://github.com/bongloy-community/bongloy-android'
+
 }
 
 android {
     compileSdkVersion 29
     defaultConfig {
-        minSdkVersion 16
+        minSdkVersion 26
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
