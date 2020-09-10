@@ -1,12 +1,13 @@
 apply plugin: 'com.novoda.bintray-release'
 apply plugin: 'com.android.library'
+
 apply plugin: 'maven-publish'
 
 publish {
 
     def groupProjectID = 'com.bongloy'
     def artifactProjectID = 'bongloy-android'
-    def publishVersionID = '1.0.0'
+    def publishVersionID = '1.0.1'
 
     userOrg = 'khomsovon'
     repoName = 'bongloy'
@@ -15,6 +16,23 @@ publish {
     publishVersion = publishVersionID
     desc = 'The Bongloy Android SDK makes it quick and easy to build an excellent payment experience in your Android app.'
     website = 'https://github.com/bongloy-community/bongloy-android'
+
+    // Step 2: Add the custom publication details like below
+    project.afterEvaluate {
+        publishing {
+            publications {
+                BongloyPub(MavenPublication) {
+                    groupId groupProjectID
+                    artifactId artifactProjectID
+                    version publishVersionID
+
+                    artifact bundleReleaseAar
+                }
+            }
+        }
+    }
+
+    publications = ['BongloyPub']
 
 }
 
