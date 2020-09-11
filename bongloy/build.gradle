@@ -7,7 +7,7 @@ publish {
 
     def groupProjectID = 'com.bongloy'
     def artifactProjectID = 'bongloy-android'
-    def publishVersionID = '1.0.1'
+    def publishVersionID = '1.0.3'
 
     userOrg = 'khomsovon'
     repoName = 'bongloy'
@@ -21,7 +21,7 @@ publish {
     project.afterEvaluate {
         publishing {
             publications {
-                BongloyPub(MavenPublication) {
+                MyPub(MavenPublication) {
                     groupId groupProjectID
                     artifactId artifactProjectID
                     version publishVersionID
@@ -32,7 +32,7 @@ publish {
         }
     }
 
-    publications = ['BongloyPub']
+    publications = ['MyPub']
 
 }
 

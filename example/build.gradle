@@ -63,7 +63,7 @@ dependencies {
     implementation 'com.github.khomsovon:CreditCardView:v1.0.5'
     implementation 'com.rengwuxian.materialedittext:library:2.1.4'
     implementation 'com.android.support:multidex:1.0.3'
-//    implementation 'com.bongloy:bongloy-android:1.0.0'
+//    implementation 'com.bongloy:bongloy-android:1.0.2'
 
 
 }
