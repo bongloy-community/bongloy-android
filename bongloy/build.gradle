@@ -6,14 +6,17 @@ task sourcesJar(type: Jar) {
     classifier = 'sources'
     from android.sourceSets.main.java.srcDirs
 }
-
 publish {
+
+    def groupProjectID = GROUP
+    def artifactProjectID = ARTIFACT_ID
+    def publishVersionID = PUBLISH_VERSION
 
     userOrg = USER_ORG
     repoName = REPO_NAME
-    groupId = GROUP
-    artifactId = ARTIFACT_ID
-    publishVersion = PUBLISH_VERSION
+    groupId = groupProjectID
+    artifactId = artifactProjectID
+    publishVersion = publishVersionID
     desc = DESCRIPTION
     website = WEBSITE
 
@@ -21,9 +24,10 @@ publish {
         publishing {
             publications {
                 MyPub(MavenPublication) {
-                    groupId GROUP
-                    artifactId ARTIFACT_ID
-                    version PUBLISH_VERSION
+                    groupId groupProjectID
+                    artifactId artifactProjectID
+                    version publishVersionID
+
                     artifact bundleReleaseAar
                     artifact sourcesJar
                 }
@@ -32,6 +36,7 @@ publish {
     }
 
     publications = ['MyPub']
+
 }
 
 android {
@@ -42,6 +47,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -56,7 +62,6 @@ android {
             assets.srcDirs = ['assets']
         }
         main.java.srcDirs += 'src/main/java'
-
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8

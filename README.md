@@ -13,7 +13,7 @@ No need to clone the repository or download any files -- just add this line to y
 ```
 implementation 'com.stripe:stripe-android:8.1.0'
 
-implementation 'com.bongloy:bongloy-android:1.0.5'
+implementation 'com.bongloy:bongloy-android:1.0.0'
 ```
 
 ## Usage
