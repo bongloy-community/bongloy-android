@@ -13,18 +13,7 @@ No need to clone the repository or download any files -- just add this line to y
 ```
 implementation 'com.stripe:stripe-android:8.1.0'
 
-implementation 'com.github.bongloy-community:bongloy-android:1.0.3'
-```
-
-And add it in your root build.gradle at the end of repositories:
-
-```
-allprojects {
-  repositories {
-    ...
-    maven { url 'https://jitpack.io' }
-  }
-}
+implementation 'com.bongloy:bongloy-android:1.0.5'
 ```
 
 ## Usage
@@ -52,6 +41,3 @@ new Bongloy(context).createToken(
 ## Official Documentation
 
 Documentation for Bongloy can be found on the [Bongloy website](https://www.bongloy.com/documentation).
-
-
-

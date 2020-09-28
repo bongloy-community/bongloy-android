@@ -1,6 +1,5 @@
 apply plugin: 'com.novoda.bintray-release'
 apply plugin: 'com.android.library'
-
 apply plugin: 'maven-publish'
 
 task sourcesJar(type: Jar) {
@@ -10,27 +9,21 @@ task sourcesJar(type: Jar) {
 
 publish {
 
-    def groupProjectID = 'com.bongloy'
-    def artifactProjectID = 'bongloy-android'
-    def publishVersionID = '1.0.4'
+    userOrg = USER_ORG
+    repoName = REPO_NAME
+    groupId = GROUP
+    artifactId = ARTIFACT_ID
+    publishVersion = PUBLISH_VERSION
+    desc = DESCRIPTION
+    website = WEBSITE
 
-    userOrg = 'khomsovon'
-    repoName = 'bongloy'
-    groupId = groupProjectID
-    artifactId = artifactProjectID
-    publishVersion = publishVersionID
-    desc = 'The Bongloy Android SDK makes it quick and easy to build an excellent payment experience in your Android app.'
-    website = 'https://github.com/bongloy-community/bongloy-android'
-
-    // Step 2: Add the custom publication details like below
     project.afterEvaluate {
         publishing {
             publications {
                 MyPub(MavenPublication) {
-                    groupId groupProjectID
-                    artifactId artifactProjectID
-                    version publishVersionID
-
+                    groupId GROUP
+                    artifactId ARTIFACT_ID
+                    version PUBLISH_VERSION
                     artifact bundleReleaseAar
                     artifact sourcesJar
                 }
@@ -39,7 +32,6 @@ publish {
     }
 
     publications = ['MyPub']
-
 }
 
 android {
@@ -65,9 +57,6 @@ android {
         }
         main.java.srcDirs += 'src/main/java'
 
-        test {
-
-        }
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -77,6 +66,5 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.stripe:stripe-android:8.1.0'
 }

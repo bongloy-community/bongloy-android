@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity implements IFocus {
     private ProgressDialogController mProgressDialogController;
 
     private static final String PUBLISHABLE_KEY =
-            "pk_test_2411c55a75ad6d004eaaf240f99b577dec6d6630789c06a23639967ae3c10572";
+            "pk_test_69bf785ab0e264c9b6b081040ea460eaf79833ae2219e57f1cc3379c26955c1a";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
